@@ -1,0 +1,12 @@
+# Twitter
+consumerKey=your_twitter_consumer_key
+consumerSecret=your_twitter_consumer_secret
+token=your_twitter_token
+secret=your_twitter_secret
+
+# AWS Credentials 
+awsSecretKey=your_aws_secret_key
+awsAccessKey=your_aws_access_key
+
+# AWS Kinesis
+kinesisStreamName=your_kinesis_stream_name
