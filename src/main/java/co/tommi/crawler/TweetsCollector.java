@@ -19,7 +19,7 @@ import com.twitter.hbc.core.processor.StringDelimitedProcessor;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
 
-public class RealtimeTweetsCollector {
+public class TweetsCollector {
 	static Client hosebirdClient;
 
 	/** Set up your blocking queues: Be sure to size these properly based on expected TPS of your stream */

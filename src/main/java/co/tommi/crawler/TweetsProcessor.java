@@ -14,7 +14,7 @@ import com.amazonaws.services.kinesis.model.GetShardIteratorResult;
 import com.amazonaws.services.kinesis.model.Record;
 import com.amazonaws.services.kinesis.model.Shard;
 
-public class RealtimeTweetsProcesser {
+public class TweetsProcessor {
 	public static void main(String[] args) {
 		AmazonKinesisClient kinesisClient = Helper.setupKinesisClient();
 
