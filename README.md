@@ -1,15 +1,18 @@
 # Twitter Crawler
+A small Java exploration project with [Twitter Streaming API](https://dev.twitter.com/docs/streaming-apis) and [Amazon Kinesis](http://aws.amazon.com/kinesis/).
 
 ## How to use?
-1. Ensure you have maven installed with at least Java 1.7
-2. Clone the repo
-3. Go into the project folder, run `mvn package`
-4. Create the config file: `cp config.properties.sample config.properties`
-5. Add the necessary keys in the config file.
-6. Start the collector: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsCollector"`
-7. Start the processor: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsProcessor"`
+1. Spin up a Amazon Kinesis stream
+2. Ensure you have maven installed with at least Java 1.7
+3. Clone the repo
+4. Go into the project folder, run `mvn package`
+5. Create the config file: `cp config.properties.sample config.properties`
+6. Add the necessary keys in the config file.
+7. Start the collector: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsCollector"`
+8. Start the processor: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsProcessor"`
+9. Don't forget to spin down your Kinesis stream when you are done!
 
-## What TweetsProcesser.java does
+## What TweetsProcessor.java does
 * Get tweets using Twitter's Streaming API
 * Add these tweets to Amazon Kinesis
 
