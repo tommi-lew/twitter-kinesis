@@ -1,4 +1,4 @@
-# Twitter Crawler
+# Twitter Kinesis
 A small Java exploration project with [Twitter Streaming API](https://dev.twitter.com/docs/streaming-apis) and [Amazon Kinesis](http://aws.amazon.com/kinesis/).
 
 ## How to use?
