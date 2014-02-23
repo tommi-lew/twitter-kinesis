@@ -4,8 +4,10 @@
 1. Ensure you have maven installed with at least Java 1.7
 2. Clone the repo
 3. Go into the project folder, run `mvn package`
-4. Start the collector: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsCollector"`
-5. Start the processor: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsProcessor"`
+4. Create the config file: `cp config.properties.sample config.properties`
+5. Add the necessary keys in the config file.
+6. Start the collector: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsCollector"`
+7. Start the processor: `mvn exec:java -Dexec.mainClass="co.tommi.crawler.TweetsProcessor"`
 
 ## What TweetsProcesser.java does
 * Get tweets using Twitter's Streaming API
