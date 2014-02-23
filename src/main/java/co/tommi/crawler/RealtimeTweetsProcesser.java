@@ -15,7 +15,7 @@ import com.amazonaws.services.kinesis.model.GetShardIteratorResult;
 import com.amazonaws.services.kinesis.model.Record;
 import com.amazonaws.services.kinesis.model.Shard;
 
-public class Receiver {
+public class RealtimeTweetsProcesser {
 	public static void main(String[] args) {
 		// Load AWS Credentials
 		BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(
