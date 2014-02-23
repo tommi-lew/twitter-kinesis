@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.kinesis.AmazonKinesisClient;
 import com.amazonaws.services.kinesis.model.PutRecordRequest;
 import com.amazonaws.services.kinesis.model.PutRecordResult;
@@ -21,14 +20,13 @@ import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
 
 public class RealtimeTweetsCollector {
-	static AmazonKinesisClient kinesisClient;
 	static Client hosebirdClient;
 
 	/** Set up your blocking queues: Be sure to size these properly based on expected TPS of your stream */
 	static BlockingQueue<String> msgQueue = new LinkedBlockingQueue<String>(100000);
 
 	public static void main(String[] args) {
-		setupKinesisClient();
+		AmazonKinesisClient kinesisClient = Helper.setupKinesisClient();
 		setupHosebirdClient();
 		hosebirdClient.connect();
 
@@ -76,15 +74,5 @@ public class RealtimeTweetsCollector {
 	        .processor(new StringDelimitedProcessor(msgQueue));
 
 		hosebirdClient = builder.build();
-	}
-
-	public static void setupKinesisClient() {
-		// Load AWS Credentials
-		BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(
-				Helper.properties().getProperty("awsSecretKey"), Helper.properties().getProperty("awsAccessKey"));
-
-		// Create the Amazon Kinesis Client
-		kinesisClient = new AmazonKinesisClient(basicAWSCredentials);
-		kinesisClient.setEndpoint("https://kinesis.us-east-1.amazonaws.com", "kinesis", "us-east-1");
 	}
 }
