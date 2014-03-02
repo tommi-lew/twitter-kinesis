@@ -1,22 +1,19 @@
 package co.tommi.crawler;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertThat;
-
-import java.util.Properties;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 import org.junit.Test;
-
-import com.amazonaws.services.kinesis.AmazonKinesisClient;
 
 public class HelperTest  {
 	@Test
 	public void testProperties() {
-    	assertThat(Helper.properties(), instanceOf(Properties.class));
+		assertThat(Helper.properties(), is(notNullValue()));
     }
 
 	@Test
 	public void testSetupKinesisClient() {
-		assertThat(Helper.setupKinesisClient(), instanceOf(AmazonKinesisClient.class));
+		assertThat(Helper.setupKinesisClient(), is(notNullValue()));
 	}
 }
